@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reto 2</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/16b6efb3e6.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+    <body>
+        <header class="head">
+            <nav class="menu-nav">
+                <a href="#" class="logo link-menu"><i class="fas fa-bicycle"></i></a>
+                <button class="toggle desp-menu" onclick="desplegar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="navegacion">
+                    <li class="item-nav"><a href="#" class="link link-menu" onclick="bike_form()">Bike</a></li>
+                    <li class="item-nav"><a href="#" class="link link-menu" onclick="client_form()">Client</a></li>
+                    <li class="item-nav"><a href="#" class="link link-menu" onclick="message_form()">Message</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container-form">
+            <!--------------------------- Form bike --------------------------------------->
+            <form action="" class="form-bike">
+                <h1>BIKE</h1>
+                <label>ID</label>
+                <input type="number" id="id_bike" placeholder="Enter id" autocomplete="off" required>
+                <small>Digite id de bicicleta</small>
+                <label>BRAND</label>
+                <input type="text" id="brand" placeholder="Enter brand" autocomplete="off" required>
+                <small>Digite la marca de bicicleta</small>
+                <label>MODEL</label>
+                <input type="number" id="model" placeholder="Enter model" autocomplete="off" required>
+                <small>Digite el modelo de bicicleta</small>
+                <label>CATEGORY</label>
+                <input type="number" id="category_id" placeholder="Enter category" autocomplete="off" required>
+                <small>Digite la categoria de bicicleta</small>
+                <label>NAME</label>
+                <input type="text" id="name_bike" placeholder="Enter name" autocomplete="off" required>
+                <small>Digite el nombre de bicicleta</small>
+                <input class="btn-bike" type="button" value="Consultar" id="tabla_bike" onclick="consultarBike()">
+                <input class="btn-bike" type="button" value="Agregar" id="agregar_bike" onclick="agregarBike()">
+            </form>
+            <!--------------------------- Form client --------------------------------------->
+            <form action="" class="form-client">
+                <h1>CLIENT</h1>
+                <label>ID</label>
+                <input type="number" id="id_client" placeholder="Enter id" autocomplete="off" required>
+                <small>Digite id de cliente</small>
+                <label>NAME</label>
+                <input type="text" id="name_client" placeholder="Enter name" autocomplete="off" required>
+                <small>Digite el nombre de cliente</small>
+                <label>E-MAIL</label>
+                <input type="text" id="email" placeholder="Enter E-mail" autocomplete="off" required>
+                <small>Digite el modelo de bicicleta</small>
+                <label>AGE</label>
+                <input type="number" id="age" placeholder="Enter age" autocomplete="off" required>
+                <small>Digite la categoria de bicicleta</small>
+                <input class="btn-client" type="button" value="Consultar" onclick="consultarClient()">
+                <input class="btn-client" type="button" value="Agregar" onclick="agregarClient()">
+            </form>
+            <!------------------------------- Form message ----------------------------------->
+            <form action="" class="form-message">
+                <h1>MESSAGE</h1>
+                <label>ID</label>
+                <input type="number" id="id_message" placeholder="Enter id" autocomplete="off" required>
+                <small>Digite id de mensaje</small>
+                <label>MESSAGE TEXT</label>
+                <input type="text" id="message_text" placeholder="Enter message" autocomplete="off" required>
+                <small>Digite el mensaje</small>
+                <input class="btn-message" type="button" value="Consultar" onclick="consultarMessage()">
+                <input class="btn-message" type="button" value="Agregar" onclick="agregarMessage()">
+            </form>
+        </div>
+        <div class="sect-table"></div>
+        <!------------------------------- Ventana modal de bike -------------------------------------->
+        <div class="contenedor-modal">
+            <div class="ventana-modal">
+                <a href="#" class="close" onclick="cerrar()">X</a>
+                <h1 class="titulo-modal">Actualizar</h1>
+                <form action="" class="bike-modal">
+                    <label>ID</label>
+                    <input type="number" id="idBikeModal" placeholder="Enter id" autocomplete="off" required>
+                    <small>Digite id de bicicleta</small>
+                    <label>BRAND</label>
+                    <input type="text" id="brandModal" placeholder="Enter brand" autocomplete="off" required>
+                    <small>Digite la marca de bicicleta</small>
+                    <label>MODEL</label>
+                    <input type="number" id="modelModal" placeholder="Enter model" autocomplete="off" required>
+                    <small>Digite el modelo de bicicleta</small>
+                    <label>CATEGORY</label>
+                    <input type="number" id="categoryIdModal" placeholder="Enter category" autocomplete="off" required>
+                    <small>Digite la categoria de bicicleta</small>
+                    <label>NAME</label>
+                    <input type="text" id="nameBikeModal" placeholder="Enter name" autocomplete="off" required>
+                    <small>Digite el nombre de bicicleta</small>
+                    <input class="btn-bike" type="button" value="Guardar" id="tabla_bike" onclick="actualizarBike()">
+                    <input class="btn-bike-cerrar" type="button" value="Cerrar" id="tabla_bike" onclick="cerrar()">   
+                </form>
+                <!------------------------------- Ventana modal de client -------------------------------------->
+                <form action="" class="client-modal">
+                    <label>ID</label>
+                    <input type="number" id="idClientModal" placeholder="Enter id" autocomplete="off" required>
+                    <small>Digite id de cliente</small>
+                    <label>NAME</label>
+                    <input type="text" id="nameClientModal" placeholder="Enter name" autocomplete="off" required>
+                    <small>Digite el nombre de cliente</small>
+                    <label>EMAIL</label>
+                    <input type="text" id="emailClientModal" placeholder="Enter email" autocomplete="off" required>
+                    <small>Digite el e-mail de cliente</small>
+                    <label>AGE</label>
+                    <input type="number" id="ageClientModal" placeholder="Enter age" autocomplete="off" required>
+                    <small>Digite la edad de cliente</small>
+                    <input class="btn-client" type="button" value="Guardar" id="tabla_bike" onclick="actualizarClient()">
+                    <input class="btn-client-cerrar" type="button" value="Cerrar" id="tabla_bike" onclick="cerrarClient()">   
+                </form>
+                <!------------------------------- Ventana modal de client -------------------------------------->
+                <form action="" class="message-modal">
+                    <label>ID</label>
+                    <input type="text" id="idMessageModal" placeholder="Enter id" autocomplete="off" required>
+                    <small>Digite id de mensaje</small>
+                    <label>MESSAGE TEXT</label>
+                    <input type="text" id="messageTextModal" placeholder="Enter message" autocomplete="off" required>
+                    <small>Digite el mensaje</small>
+                    <input class="btn-message" type="button" value="Guardar" onclick="actualizarMessage()">
+                    <input class="btn-message-cerrar" type="button" value="Cerrar" onclick="cerrarMessage()">
+                </form>
+            </div>
+        </div>
+        <script src="./js/main.js"></script>
+        <script src="./js/animation.js"></script>
+    </body>
+</html>
